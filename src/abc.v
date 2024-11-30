@@ -14,7 +14,7 @@ module ABC
 	output reg [3:0] C2
 );
 
-	always @ (posedge reset or posedge clk)
+	always @ (posedge clk)
 	begin
 		if (reset) begin
 			A <= 0;
@@ -23,7 +23,7 @@ module ABC
 			C2 <= 0;
 		end
 		
-		if (enable)
+		else if (enable)
 		begin
 			A <= A + (!X1 && X2);
 			B <= B + (X1 && !X2);
